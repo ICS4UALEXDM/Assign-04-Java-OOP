@@ -1,27 +1,53 @@
-###################################
+##################################################
 
-# Run SwiftLint against code base #
+# Run Mr Coxall's Super Linter against code base #
 
-###################################
+##################################################
 
-name: SwiftLint
+---
+
+name: Mr Coxall's Super Linter
+
 
 on: [push, pull_request]
 
+
 jobs:
 
-  SwiftLint--strict:
+ run-linters:
 
-    runs-on: ubuntu-latest
+   name: Mr Coxall's Super Linter
 
-    steps:
+   runs-on: ubuntu-latest
 
-      - uses: actions/checkout@v2
 
-      - name: GitHub Action for SwiftLint with --strict
+   steps:
 
-        uses: norio-nomura/action-swiftlint@3.2.1
+     - name: Check out Git repository
 
-        with:
+       uses: actions/checkout@main
 
-          args: --strict
+
+     - name: Run GitHub Super Linter
+
+       uses: github/super-linter@main
+
+       env:
+
+         VALIDATE_ALL_CODEBASE: true
+
+         LINTER_RULES_PATH: /
+
+         VALIDATE_CLANG_FORMAT: false
+
+         VALIDATE_JAVASCRIPT_STANDARD: false
+
+         VALIDATE_PYTHON_FLAKE8: false
+
+         VALIDATE_GITLEAKS: false # for secrets detection
+
+         VALIDATE_JSCPD: false # for copy and paste detection
+
+         DEFAULT_BRANCH: main
+
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
