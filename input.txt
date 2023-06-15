@@ -1,10 +1,19 @@
-Account, Savings, 0, Alex De Meo
-Portfolio, Testing, 0, 0
+Account, demeoalex, 0, Alex De Meo
+Portfolio, For a new car, 0, 0
+Portfolio, Savings, 1, 0
 portfolio.depositFunds, 0, 40000
-portfolio.withdrawFunds, 0, 6000
-portfolio.buyStock, 0, GOOG, 10
+portfolio.depositFunds, 1, 27000
+portfolio.buyStock, 1, GOOG, 10
 portfolio.buyStock, 0, AAPL, 3
 portfolio.buyStock, 0, PTON, 70
-portfolio.sellStock, 0, GOOG, 5
+portfolio.sellStock, 1, GOOG, 5
 portfolio.updateTotal, 0
 portfolio.displayPortfolioData, 0
+portfolio.withdrawFunds, 0, 6000
+portfolio.updateTotal, 0
+portfolio.displayPortfolioData, 0
+portfolio.displayPortfolioData, 1
+portfolio.showStocks, 0
+portfolio.showStocks, 1
+account.displayAccountData, 0
+account.displayTransactions, 0

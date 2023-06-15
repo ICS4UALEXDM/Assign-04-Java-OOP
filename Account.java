@@ -31,14 +31,14 @@ class Account extends AccountBasics {
     }
     
     public String displayTransactions() {
-        String output = "";
+        String output = "These are all the transactions that have occured in your account:\n\n";
         // Creating the Output String in the next two For loops
         for (AddOrTake transaction2 : this._transactions2) {
             output += "Type: " + transaction2._type + " | Total: $"
                     + transaction2._amount + " | Portfolio: " + transaction2._portfolioName + "\n\n";
         }
         for (Transaction transaction : this._transactions) {
-            output += "Stock: " + transaction._stockId + "Type: " + transaction._type 
+            output += "Stock: " + transaction._stockId + " | Type: " + transaction._type 
             + " | Number of Shares: " + transaction._amountOfShares + " | Total: $ "
             + transaction._amount + " | Portfolio: " + transaction._portfolioName + "\n\n";
         }

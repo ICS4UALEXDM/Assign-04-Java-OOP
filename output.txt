@@ -1,0 +1,58 @@
+Account Made
+
+Portfolio made
+
+Portfolio made
+
+Deposited
+
+Deposited
+
+Stock Bought
+
+Stock Bought
+
+Stock Bought
+
+Stock sold
+
+Updated
+
+Porfolio name: For a new car | Total Balance: $40000.0 | Account Yield: $0.0 | All time change(+/-): 0.0% | Available funds: $38814.77
+
+Withdrawn
+
+Updated
+
+Porfolio name: For a new car | Total Balance: $34000.0 | Account Yield: $0.0 | All time change(+/-): 0.0% | Available funds: $32814.77
+
+Porfolio name: Savings | Total Balance: $27000.0 | Account Yield: $0.0 | All time change(+/-): 0.0% | Available funds: $26371.049
+
+Stocks In For a new car:
+
+AAPL | Number owned: 3 | Current Value: $186.01 | Day's gain: $2.06 | Pct Change: 1.1199% | Open Price: $183.96 | Day's High: $186.515 | Day's low: $183.8
+
+PTON | Number owned: 70 | Current Value: $8.96 | Day's gain: $-0.73 | Pct Change: -7.5335% | Open Price: $9.5 | Day's High: $9.5 | Day's low: $8.72
+
+Stocks In Savings:
+
+GOOG | Number owned: 5 | Current Value: $125.79 | Day's gain: $1.41 | Pct Change: 1.1336% | Open Price: $123.88 | Day's High: $126.16 | Day's low: $123.14
+
+Account name: demeoalex | Owner: Alex De Meo | Total Balance: $0.0 | Account Yield: $0.0 | All time change(+/-): 0.0%
+
+These are all the transactions that have occured in your account:
+
+Type: Deposit | Total: $40000.0 | Portfolio: For a new car
+
+Type: Deposit | Total: $27000.0 | Portfolio: Savings
+
+Type: Withdrawal | Total: $6000.0 | Portfolio: For a new car
+
+Stock: GOOG | Type: Buy | Number of Shares: 10 | Total: $ 125.79 | Portfolio: Savings
+
+Stock: AAPL | Type: Buy | Number of Shares: 3 | Total: $ 186.01 | Portfolio: For a new car
+
+Stock: PTON | Type: Buy | Number of Shares: 70 | Total: $ 8.96 | Portfolio: For a new car
+
+Stock: GOOG | Type: Sell | Number of Shares: 5 | Total: $ 125.79 | Portfolio: Savings
+

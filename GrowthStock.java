@@ -43,6 +43,7 @@ public class GrowthStock {
                 response.append(line);
             }
             reader.close();
+            // This is where we parse the data for items like price and day change
             String data = response.toString();
             String[] datapoints = data.split(",");
             int startingPointPrice = datapoints[0].indexOf(":") + 1;
@@ -57,15 +58,6 @@ public class GrowthStock {
             this._low = Float.parseFloat(datapoints[4].substring(startingPointLow));
             int startingPointHigh = datapoints[3].indexOf(":") + 1;
             this._high = Float.parseFloat(datapoints[3].substring(startingPointHigh));
-            System.out.println(this._price);
-            System.out.println(this._dayChange);
-            System.out.println(this._low);
-            System.out.println(this._high);
-            System.out.println(this._pctChange);
-            System.out.println(this._open);
-
-            // Print the response
-            System.out.println(data);
 
             // Disconnect the connection
             connection.disconnect();
