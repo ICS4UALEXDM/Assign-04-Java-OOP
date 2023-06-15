@@ -1,4 +1,4 @@
-class Transaction {
+class Transaction extends AddOrTake{
     // initializing fields
     String _stockId;
     int _amountOfShares;
@@ -7,7 +7,8 @@ class Transaction {
     String _fromPortfolio;
 
     public Transaction(String stockId, int amountOfShares, float transactionTotal, float sharePrice,
-            String fromPortfolio) {
+            String fromPortfolio, String type) {
+        super(transactionTotal, fromPortfolio, type);
         // giving fields their values
         this._stockId = stockId;
         this._amountOfShares = amountOfShares;
