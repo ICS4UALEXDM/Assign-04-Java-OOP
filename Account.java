@@ -27,21 +27,22 @@ class Account extends AccountBasics {
     public String displayAccountData() {
         return "Account name: " + this._name + " | Owner: " + this._owner
                 + " | Total Balance: $" + this._accountTotal + " | Account Yield: $"
-                + this._totalYield + " | All time change(+/-): " + this._yieldPct + "%";
+                + this._totalYield + " | All time change(+/-): " + this._yieldPct + "%\n\n";
     }
     
     public String displayTransactions() {
         String output = "";
+        // Creating the Output String in the next two For loops
         for (AddOrTake transaction2 : this._transactions2) {
             output += "Type: " + transaction2._type + " | Total: $"
-                    + transaction2._amount + " | Portfolio: " + transaction2._portfolioName + "\n";
+                    + transaction2._amount + " | Portfolio: " + transaction2._portfolioName + "\n\n";
         }
         for (Transaction transaction : this._transactions) {
             output += "Stock: " + transaction._stockId + "Type: " + transaction._type 
             + " | Number of Shares: " + transaction._amountOfShares + " | Total: $ "
-            + transaction._amount + " | Portfolio: " + transaction._portfolioName;
+            + transaction._amount + " | Portfolio: " + transaction._portfolioName + "\n\n";
         }
-        
+
         return output;
     }
 }

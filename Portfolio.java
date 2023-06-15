@@ -59,7 +59,7 @@ class Portfolio extends AccountBasics {
         return "Porfolio name: " + this._name
                 + " | Total Balance: $" + this._accountTotal + " | Account Yield: $"
                 + this._totalYield + " | All time change(+/-): " + this._yieldPct
-                + "% | Available funds: $" + this._availableFunds;
+                + "% | Available funds: $" + this._availableFunds + "\n\n";
     }
 
     public void buyStock(String stockId, int numberOfShares) {
@@ -90,5 +90,17 @@ class Portfolio extends AccountBasics {
             }
         }
 
+    }
+    public String showStocks() {
+        String output = "Stocks In " + this._name + ":\n\n";
+        for (GrowthStock stock : this._growthStocks) {
+            output += stock._identifier + " | Number owned: " + stock._numberOwned
+                + " | Current Value: $" + stock._price + " | Day's gain: $"
+                + stock._dayChange + " | Pct Change: " + stock._pctChange + "% | Open Price: $"
+                + stock._open + " | Day's High: $" + stock._high + " | Day's low: $" + stock._low + "\n\n";
+        }
+        
+        
+        return output;
     }
 }
