@@ -17,8 +17,11 @@ class Account extends AccountBasics {
     @Override
     public void updateTotal() {
         this._accountTotal = 0;
+        this._startingCash = 0;
         for (Portfolio portfolio : this._portfolios) {
-            this._accountTotal += portfolio.updateTotalForAcc();
+            portfolio.updateTotal();
+            this._accountTotal += portfolio._accountTotal;
+            this._startingCash += portfolio._startingCash;
         }
         this._totalYield = this._accountTotal - this._startingCash;
         this._yieldPct = this._totalYield / this._startingCash;

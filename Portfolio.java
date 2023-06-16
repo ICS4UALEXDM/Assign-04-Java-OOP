@@ -29,6 +29,7 @@ class Portfolio extends AccountBasics {
 
     public float updateTotalForAcc() {
         this.updateTotal();
+        System.out.println(this._accountTotal);
         return this._accountTotal;
     }
 
@@ -57,27 +58,46 @@ class Portfolio extends AccountBasics {
 
     public String displayPortfolioData() {
         return "Porfolio name: " + this._name
-                + " | Total Balance: $" + this._accountTotal + " | Account Yield: $"
+                + " | Total Balance: $" + this._accountTotal + " | Portfolio Yield: $"
                 + this._totalYield + " | All time change(+/-): " + this._yieldPct
                 + "% | Available funds: $" + this._availableFunds + "\n\n";
     }
 
     public void buyStock(String stockId, int numberOfShares) {
-        GrowthStock stock = new GrowthStock(stockId);
-        this._growthStocks.add(stock);
-        stock.updatePrice();
-        if (numberOfShares * stock._price <= this._availableFunds) {
-            float total = numberOfShares * stock._price;
-            stock._numberOwned += numberOfShares;
-            this._availableFunds -= total;
-            Transaction transaction = new Transaction(stockId, numberOfShares, stock._price, total, this._name, "Buy");
-            this._account._transactions.add(transaction);
+        boolean stockNotExist = true;
+        for (GrowthStock stock : this._growthStocks) {
+            if (stockId.equals(stock._identifier)) {
+                stock.updatePrice();
+                if (numberOfShares * stock._price <= this._availableFunds) {
+                    float total = numberOfShares * stock._price;
+                    stock._numberOwned += numberOfShares;
+                    this._availableFunds -= total;
+                    Transaction transaction = new Transaction(stockId, numberOfShares, stock._price, total, this._name,
+                            "Buy");
+                    this._account._transactions.add(transaction);
+                }
+                stockNotExist = false;
+            }
+        }
+        if (stockNotExist) {
+            GrowthStock stock = new GrowthStock(stockId);
+            this._growthStocks.add(stock);
+            stock.updatePrice();
+            if (numberOfShares * stock._price <= this._availableFunds) {
+                float total = numberOfShares * stock._price;
+                stock._numberOwned += numberOfShares;
+                this._availableFunds -= total;
+                Transaction transaction = new Transaction(stockId, numberOfShares, stock._price, total, this._name,
+                        "Buy");
+                this._account._transactions.add(transaction);
+            }
         }
     }
 
     public void sellStock(String stockId, int numberOfShares) {
         for (GrowthStock stock : this._growthStocks) {
             if (stockId.equals(stock._identifier)) {
+                stock.updatePrice();
                 if (stock._numberOwned >= numberOfShares) {
                     stock._numberOwned -= numberOfShares;
                     float total = numberOfShares * stock._price;
@@ -95,12 +115,10 @@ class Portfolio extends AccountBasics {
         String output = "Stocks In " + this._name + ":\n\n";
         for (GrowthStock stock : this._growthStocks) {
             output += stock._identifier + " | Number owned: " + stock._numberOwned
-                + " | Current Value: $" + stock._price + " | Day's gain: $"
+                + " | Current Value: $" + stock._price + " | Day's change: $"
                 + stock._dayChange + " | Pct Change: " + stock._pctChange + "% | Open Price: $"
                 + stock._open + " | Day's High: $" + stock._high + " | Day's low: $" + stock._low + "\n\n";
         }
-        
-        
         return output;
     }
 }

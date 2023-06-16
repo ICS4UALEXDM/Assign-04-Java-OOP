@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 import javax.sound.sampled.Port;
 
 public class Main {
@@ -28,7 +27,7 @@ public class Main {
                 // Copying the contents from inputs to the arguments array. 
                 // This excludes the first item which is the methodName
                 System.arraycopy(inputs, 1, arguments, 0, arguments.length);
-                executeStep(writer, accounts, portfolios, methodName, arguments);
+                doTheThing(writer, accounts, portfolios, methodName, arguments);
 
             }
             writer.close();
@@ -38,7 +37,7 @@ public class Main {
     }
 
     // This function is a match case that Takes the input and decides what to do with the output
-    private static void executeStep(FileWriter writer, ArrayList<Account> accounts, ArrayList<Portfolio> portfolios, String methodName, String[] arguments) {
+    private static void doTheThing(FileWriter writer, ArrayList<Account> accounts, ArrayList<Portfolio> portfolios, String methodName, String[] arguments) {
         try {
             switch (methodName) {
                 case "Account":
@@ -51,6 +50,7 @@ public class Main {
                         if (account._id == Integer.parseInt(arguments[2])) {
                             Portfolio portfolio = new Portfolio(arguments[0], Integer.parseInt(arguments[1]), account);
                             portfolios.add(portfolio);
+                            account._portfolios.add(portfolio);
                             writer.write("Portfolio made\n\n");
                         }
                     }
@@ -101,6 +101,15 @@ public class Main {
                     for (Portfolio portfolio : portfolios) {
                         if (portfolio._id == Integer.parseInt(arguments[0])) {
                             portfolio.updateTotal();
+                            writer.write("Updated\n\n");
+                        }
+                    }
+
+                    break;
+                case "account.updateTotal":
+                    for (Account account : accounts) {
+                        if (account._id == Integer.parseInt(arguments[0])) {
+                            account.updateTotal();
                             writer.write("Updated\n\n");
                         }
                     }

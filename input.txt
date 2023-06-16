@@ -15,5 +15,6 @@ portfolio.displayPortfolioData, 0
 portfolio.displayPortfolioData, 1
 portfolio.showStocks, 0
 portfolio.showStocks, 1
+account.updateTotal, 0
 account.displayAccountData, 0
 account.displayTransactions, 0
